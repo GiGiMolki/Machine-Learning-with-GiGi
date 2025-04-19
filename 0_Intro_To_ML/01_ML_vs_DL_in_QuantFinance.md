@@ -22,7 +22,7 @@ In a traditional data science pipeline:
 - Works well with **structured/tabular data**
 - Often used when **interpretability** and **low compute cost** are key
 
-![AltText](/0_Intro_To_ML/ML.png)
+![AltText](/0_Intro_To_ML/Images/image1.png)
 
 ## 2. Introduction to Deep Learning (DL)
 
@@ -38,6 +38,8 @@ In modern AI systems:
 - Excels with **unstructured data** (images, text, audio)
 - Minimal manual feature engineering required
 - Scales with data and compute
+
+![AltText](/0_Intro_To_ML/Images/image2.png)
 
 ---
 
@@ -60,6 +62,7 @@ In modern AI systems:
 - Classifying skin cancer from images → DL (CNN)
 - Text summarization → DL (Transformers)
 
+![AltText](/0_Intro_To_ML/Images/image3.png)
 ---
 
 ## 4. Types of Machine Learning
@@ -80,6 +83,8 @@ In modern AI systems:
 - Agents learn by interacting with an environment to maximize reward.
 - Example: Portfolio optimization, execution strategies in trading
 
+![AltText](/0_Intro_To_ML/Images/image4.png)
+
 ---
 
 ## 5. What Is ML in Quant Finance and HFT?
@@ -96,6 +101,8 @@ In **quantitative finance and HFT**, ML models are used to identify short-term p
 ### Characteristics:
 - Models must be **fast**, **interpretable**, and **retrainable** in real-time
 - Common algorithms: Logistic Regression, XGBoost, Online Random Forests, Ridge/Lasso Regression
+
+![AltText](/0_Intro_To_ML/Images/image5.png)
 
 ---
 
@@ -114,19 +121,24 @@ DL in quant/HFT unlocks the power to learn directly from raw data streams — su
 - Able to model **nonlinear, high-dimensional patterns**
 - **Latency and interpretability** challenges require architecture optimization (e.g., quantized CNNs)
 
+
+![AltText](/0_Intro_To_ML/Images/image6.png)
+
 ---
 
 ## 7. How ML and DL Differ in Quant Finance and HFT
 
-| Aspect                         | Machine Learning (ML)                                  | Deep Learning (DL)                                  |
-|--------------------------------|---------------------------------------------------------|------------------------------------------------------|
-| **Input Type**                 | Engineered features from LOB/statistics                 | Raw LOB, tick data, time series                      |
+| Aspect                         | Machine Learning (ML)                                  | Deep Learning (DL)                                   |
+|--------------------------------|--------------------------------------------------------|------------------------------------------------------|
+| **Input Type**                 | Engineered features from LOB/statistics                | Raw LOB, tick data, time series                      |
 | **Latency Tolerance**          | Microseconds to milliseconds                           | Higher (unless optimized)                            |
 | **Training Frequency**         | Fast, retrainable frequently                           | Requires batch or streaming fine-tuning              |
 | **Alpha Discovery**            | Explicit signal modeling                               | Implicit hierarchical feature learning               |
 | **Risk Modeling**              | Easier (more explainable)                              | Harder to audit in real-time systems                 |
-| **Deployability in HFT Stack** | FPGA/C++-friendly                                       | Needs distillation or ONNX conversion                |
+| **Deployability in HFT Stack** | FPGA/C++-friendly                                      | Needs distillation or ONNX conversion                |
 | **Use Case Focus**             | Signal prediction, execution cost modeling             | Volatility surface learning, RL-based execution      |
+
+![AltText](/0_Intro_To_ML/Images/image7.png)
 
 ---
 
@@ -144,6 +156,8 @@ DL in quant/HFT unlocks the power to learn directly from raw data streams — su
 - RL-based execution, portfolio optimization
 - Processing high-dimensional multimodal inputs (e.g., price + sentiment)
 
+![AltText](/0_Intro_To_ML/Images/image8.png)
+
 ---
 
 ## 9. Why This Tech Matters in HFT — and the Next 20 Years
@@ -160,6 +174,8 @@ DL in quant/HFT unlocks the power to learn directly from raw data streams — su
 4. **On-Device DL Inference**: Quantized models deployed directly in FPGA/gateway nodes.
 5. **AI-Explainability in Finance**: Emergence of explainable DL frameworks tailored for compliance/audit.
 
+![AltText](/0_Intro_To_ML/Images/image9.png)
+
 ---
 
 ## 🔚 10. Summary
@@ -170,3 +186,5 @@ DL in quant/HFT unlocks the power to learn directly from raw data streams — su
 - As we transition from manually crafted strategies to **self-evolving intelligent trading engines**, mastery of both ML and DL will be essential.
 
 > The convergence of ML, DL, and HFT is not just a technological revolution — it’s a strategic necessity in the pursuit of sustainable alpha in modern markets.
+
+![AltText](/0_Intro_To_ML/Images/image10.png)
