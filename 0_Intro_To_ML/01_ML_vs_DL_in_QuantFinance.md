@@ -22,7 +22,7 @@ In a traditional data science pipeline:
 - Works well with **structured/tabular data**
 - Often used when **interpretability** and **low compute cost** are key
 
-![Machine Leaning ](0_Intro_To_ML/_- visual selection.png)
+![AltText](/0_Intro_To_ML/ML.png)
 
 ## 2. Introduction to Deep Learning (DL)
 
