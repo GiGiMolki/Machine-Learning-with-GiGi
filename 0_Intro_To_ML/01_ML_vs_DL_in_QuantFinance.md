@@ -22,9 +22,7 @@ In a traditional data science pipeline:
 - Works well with **structured/tabular data**
 - Often used when **interpretability** and **low compute cost** are key
 
-![Machine Leaning ](/Users/mynimbus/Library/Mobile Documents/com~apple~CloudDocs/GitHub Uploads/Machine-Learning-with-GiGi/0_Intro_To_ML/_- visual selection.png)
-
----
+![Machine Leaning ](0_Intro_To_ML/_- visual selection.png)
 
 ## 2. Introduction to Deep Learning (DL)
 
