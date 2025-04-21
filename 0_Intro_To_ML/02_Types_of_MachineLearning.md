@@ -378,11 +378,14 @@ Offline Learning (also called Batch Learning) requires the **entire dataset befo
 
 
 <h2>
-  <img src="/0_Intro_To_ML/Images/image22.png" alt="Icon" style="height:24px; vertical-align:middle; margin-right:10px;">
   6. Engineering Challenges in ML System Design
 </h2>
 
+<img src="/0_Intro_To_ML/Images/image22.png" alt="Challenges" />
+
 Designing machine learning systems goes far beyond choosing the right algorithm or tuning hyperparameters. In real-world production environments — especially in latency-sensitive, mission-critical fields like high-frequency trading — engineers face numerous challenges that stem from data quality, model reliability, and system performance. These challenges often require robust, scalable engineering solutions and thoughtful trade-offs.
+
+
 
 ---
 
