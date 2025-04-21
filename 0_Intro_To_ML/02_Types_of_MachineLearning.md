@@ -178,3 +178,200 @@ Model-Based Learning algorithms **build a model of the data** during training. T
 <img src="/0_Intro_To_ML/Images/image19.png" alt="Instance-Based vs. Model-Based Learning - Napkin Diagram" />
 
 <p><strong>Figure 9:</strong> This napkin diagram compares Instance-Based and Model-Based Learning approaches. On the left, instance-based models like k-NN store all training data and make predictions by comparing new inputs to past examples — a lazy approach that requires no training phase. On the right, model-based learning involves building a predictive function during training, enabling fast and generalized inference. This contrast is crucial when considering latency, memory, and scalability — especially in real-time ML applications like high-frequency trading systems.</p>
+
+
+## 4. Based on Production Mode
+
+This classification focuses on **how the model receives and processes data over time**, especially in production environments. It's particularly critical in systems where **data streams**, **low latency**, and **continuous learning** matter — like real-time analytics, recommendation engines, or high-frequency trading systems.
+
+---
+
+### 4.1 Online Learning
+
+Online Learning algorithms update the model **incrementally** as each new data point arrives. Ideal for non-stationary environments or where real-time decision-making is essential.
+
+- **How it works**: Model is updated after every data point or mini-batch.
+- **Algorithms**: Stochastic Gradient Descent, Passive-Aggressive, Online Perceptron
+- **Characteristics**:
+  - Fast, memory-efficient
+  - Adapts to new data instantly
+  - Robust to concept drift (changes in data distribution)
+- **Use Cases**: High-Frequency Trading, Fraud Detection, Real-time Recommendations
+
+> ⚙️ *Engineering Note*: Online models are essential in HFT where millisecond-level adaptation to market data is critical.
+
+<img src="/0_Intro_To_ML/Images/image20.png" alt="Online Learning - Napkin Diagram" />
+
+<p><strong>Figure 10:</strong> This napkin diagram represents Online Learning, where models continuously update with each new data point. It’s essential in non-stationary, low-latency environments like high-frequency trading. As data flows in real time — such as tick-by-tick market data — the model adapts immediately without retraining on the full dataset. This enables highly responsive decision-making, making it a foundational method for streaming AI systems.</p>
+
+---
+
+### 4.2 Offline (Batch) Learning
+
+Offline Learning (also called Batch Learning) requires the **entire dataset beforehand** to train the model. Once trained, the model does not learn from new data until retrained.
+
+- **How it works**: Data is processed in bulk, model is trained all at once.
+- **Algorithms**: Linear Regression, SVM, Decision Trees (standard implementations)
+- **Characteristics**:
+  - Stable, robust training
+  - Needs full data access
+  - Retraining is computationally expensive
+- **Use Cases**: Risk Modeling, Portfolio Optimization, Static Forecasting
+
+> ⚙️ *Engineering Note*: Offline learning is appropriate when model stability is more important than adaptivity — such as in quarterly portfolio rebalancing or long-horizon backtests.
+
+<img src="/0_Intro_To_ML/Images/image21.png" alt="Offline (Batch) Learning - Napkin Diagram" />
+
+<p><strong>Figure 11:</strong> This napkin diagram illustrates Offline (Batch) Learning, where models are trained on complete historical datasets in one go. The model is fixed post-training and cannot adapt until explicitly retrained with new data. This approach is widely used in stable systems like risk analysis and portfolio optimization, where consistent behavior is preferred over adaptability. Unlike online learning, it suits environments with infrequent data updates and low tolerance for model volatility.</p>
+
+---
+
+ ### 🔁 Summary Table
+
+| Mode     | Learning Style     | Memory Usage | Adaptivity | Training Frequency | Common Use Cases              |
+|----------|--------------------|--------------|------------|--------------------|-------------------------------|
+| Online   | Incremental (Live) | Low          | High       | Continuous         | HFT, Real-Time Bidding, IoT   |
+| Offline  | Batch (Static)     | High         | Low        | Periodic           | Risk Models, Backtesting      |
+
+
+<h3>🔁 Summary: Online vs Offline Learning</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Online Learning</th>
+      <th>Offline (Batch) Learning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Learning Style</strong></td>
+      <td>Incremental (one data point at a time)</td>
+      <td>All at once (entire dataset at once)</td>
+    </tr>
+    <tr>
+      <td><strong>Adaptability</strong></td>
+      <td>High – adapts in real-time</td>
+      <td>Low – static after training</td>
+    </tr>
+    <tr>
+      <td><strong>Training Frequency</strong></td>
+      <td>Continuous</td>
+      <td>Periodic (scheduled retraining)</td>
+    </tr>
+    <tr>
+      <td><strong>Memory Usage</strong></td>
+      <td>Low – no need to store all data</td>
+      <td>High – stores and reprocesses full dataset</td>
+    </tr>
+    <tr>
+      <td><strong>Compute Cost</strong></td>
+      <td>Lightweight and ongoing</td>
+      <td>Heavy but done in batches</td>
+    </tr>
+    <tr>
+      <td><strong>Latency Tolerance</strong></td>
+      <td>Very low – designed for real-time</td>
+      <td>Higher latency acceptable</td>
+    </tr>
+    <tr>
+      <td><strong>Common Use Cases</strong></td>
+      <td>High-Frequency Trading, Fraud Detection</td>
+      <td>Portfolio Optimization, Risk Modeling</td>
+    </tr>
+    <tr>
+      <td><strong>Examples</strong></td>
+      <td>Online SGD, Passive-Aggressive, Online Perceptron</td>
+      <td>SVM, Decision Trees, XGBoost</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2>5. Based on Objective or Functionality</h2>
+
+<h3>5.1 Predictive</h3>
+<p>Predictive modeling focuses on learning a function from historical data that can make accurate predictions on unseen inputs. It is typically supervised learning, where the model maps inputs to outputs. Examples include regression models predicting stock prices, or classifiers detecting fraud.</p>
+
+<h3>5.2 Descriptive</h3>
+<p>Descriptive modeling identifies patterns or structures in data without explicitly predicting outcomes. It is primarily unsupervised and used to gain insight or group data meaningfully. Examples include clustering customer segments or discovering latent topics in documents.</p>
+
+<h4>🔁 Predictive vs Descriptive (Comparison)</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Predictive</th>
+      <th>Descriptive</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Goal</strong></td>
+      <td>Predict future or unknown outcomes</td>
+      <td>Understand structure or patterns in data</td>
+    </tr>
+    <tr>
+      <td><strong>Learning Type</strong></td>
+      <td>Supervised</td>
+      <td>Unsupervised</td>
+    </tr>
+    <tr>
+      <td><strong>Examples</strong></td>
+      <td>Regression, Classification</td>
+      <td>Clustering, Topic Modeling</td>
+    </tr>
+    <tr>
+      <td><strong>Real-World Use</strong></td>
+      <td>Predict stock prices, detect fraud</td>
+      <td>Group customers, analyze behavior</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>5.3 Generative</h3>
+<p>Generative models learn the joint probability distribution P(X, Y) or just P(X), allowing them to generate new data instances. They model how data is generated, making them suitable for tasks like text generation, image synthesis, and data augmentation. Examples: Naive Bayes, GANs, VAEs, GPT.</p>
+
+<h3>5.4 Discriminative</h3>
+<p>Discriminative models learn the conditional probability P(Y | X) or a direct decision boundary between classes. They are optimized for classification accuracy and are often more efficient in making predictions. Examples: Logistic Regression, SVM, Decision Trees, BERT (for classification).</p>
+
+<h4>🔁 Generative vs Discriminative (Comparison)</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Generative</th>
+      <th>Discriminative</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Probability Modeled</strong></td>
+      <td>P(X, Y) or P(X)</td>
+      <td>P(Y | X)</td>
+    </tr>
+    <tr>
+      <td><strong>Goal</strong></td>
+      <td>Generate or simulate data</td>
+      <td>Classify or predict labels</td>
+    </tr>
+    <tr>
+      <td><strong>Output</strong></td>
+      <td>New samples, latent representations</td>
+      <td>Labels, boundaries, probabilities</td>
+    </tr>
+    <tr>
+      <td><strong>Examples</strong></td>
+      <td>Naive Bayes, GANs, GPT</td>
+      <td>Logistic Regression, SVM, BERT</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>5.5 When to Use What (With Real-World Examples)</h3>
+<ul>
+  <li><strong>Use Predictive models</strong> when you need to forecast, classify, or make data-driven decisions — e.g., predicting stock prices, identifying customer churn, or real-time fraud detection in fintech.</li>
+  <li><strong>Use Descriptive models</strong> when the goal is to explore or understand data without a specific label — e.g., clustering trades by behavior, or segmenting customer portfolios.</li>
+  <li><strong>Use Generative models</strong> when creating new content or simulating scenarios is useful — e.g., generating synthetic market data, simulating news for sentiment analysis, or building realistic agent-based models.</li>
+  <li><strong>Use Discriminative models</strong> when classification accuracy and decision boundaries are key — e.g., deciding whether to execute a trade based on features, or labeling market sentiment from news headlines.</li>
+</ul>
