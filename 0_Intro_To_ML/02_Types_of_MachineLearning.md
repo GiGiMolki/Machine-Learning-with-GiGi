@@ -118,3 +118,63 @@ In RL, an agent learns to make decisions by interacting with an environment and 
 <img src="/0_Intro_To_ML/Images/image16.png" alt="Types of Machine Learning - Summary Table" />
 
 <p><strong>Figure 6:</strong> This napkin diagram summarizes the key types of machine learning based on supervision. It includes a comparison of Supervised Learning, Unsupervised Learning, Semi-Supervised Learning, and Reinforcement Learning, with a summary table that highlights key distinctions in data requirements, training methods, and real-world applications. This table is especially useful for selecting the right approach for various tasks in Quant Finance and High-Frequency Trading, where trade-offs between data availability, latency, and real-time decision-making are critical.</p>
+
+
+## 3. Based on Learning Strategy
+
+This classification is based on *how* learning is conducted — particularly how the model uses the data, stores experience, and generalizes to new inputs. The two main strategies are:
+
+---
+
+### 3.1 Instance-Based Learning
+
+Instance-Based Learning algorithms **memorize training data** and generalize only when they see new examples. No explicit training phase happens — instead, computation is deferred until prediction time (lazy learners).
+
+- **How it works**: Store all examples, compare new input with stored examples using similarity/distance metric (like Euclidean distance).
+- **Algorithms**: k-Nearest Neighbors (k-NN), Case-Based Reasoning
+- **Characteristics**:
+  - Fast to train, slow to predict
+  - Highly interpretable
+  - No model abstraction — purely data-driven
+- **Challenges**: Scalability, sensitivity to noise, curse of dimensionality
+
+> 💡 *Engineer’s Lens*: Great when model transparency and simplicity are more important than performance — not commonly used in HFT where latency is critical.
+
+<img src="/0_Intro_To_ML/Images/image17.png" alt="Instance-Based Learning - Napkin Diagram" />
+
+<p><strong>Figure 7:</strong> This napkin diagram illustrates Instance-Based Learning, where the model memorizes the entire dataset and defers generalization to inference time. A new input is compared to stored instances using a distance metric, and the most similar instances guide the prediction. Algorithms like k-Nearest Neighbors (k-NN) are classic examples. While interpretable and simple, this approach can become inefficient for large datasets and is less suited for low-latency environments like HFT.</p>
+
+---
+
+### 3.2 Model-Based Learning
+
+Model-Based Learning algorithms **build a model of the data** during training. This model is used to make predictions efficiently during inference time. These are also known as eager learners.
+
+- **How it works**: Train a model `f(x)` using optimization techniques to minimize error on training data.
+- **Algorithms**: Linear/Logistic Regression, SVM, Decision Trees, Neural Networks
+- **Characteristics**:
+  - Training can be costly
+  - Prediction is fast
+  - Supports generalization to unseen data
+- **Challenges**: Overfitting, requires hyperparameter tuning, assumptions about data
+
+> 💡 *Engineer’s Lens*: Critical in production environments like HFT where fast inference and generalization are mandatory. Most quant ML models fall in this category.
+
+
+<img src="/0_Intro_To_ML/Images/image18.png" alt="Model-Based Learning - Napkin Diagram" />
+
+<p><strong>Figure 8:</strong> This napkin diagram illustrates Model-Based Learning, where the model is trained in advance using an optimization process. The model generalizes patterns from the data and can quickly make predictions for unseen inputs. This eager learning approach is ideal for production-grade ML systems — especially in domains like HFT, where fast inference and robust generalization are critical for real-time decision-making under uncertainty.</p>
+
+---
+
+> 📌 **Summary Table**
+
+| Strategy            | Description                              | Training Phase | Inference Time | Common Use Cases              |
+|---------------------|------------------------------------------|----------------|----------------|-------------------------------|
+| Instance-Based      | Stores data, predicts via similarity     | None (Lazy)    | Slow           | Memory-based search, fallback |
+| Model-Based         | Learns abstract model from data          | Heavy (Eager)  | Fast           | Most supervised ML tasks      |
+
+
+<img src="/0_Intro_To_ML/Images/image19.png" alt="Instance-Based vs. Model-Based Learning - Napkin Diagram" />
+
+<p><strong>Figure 9:</strong> This napkin diagram compares Instance-Based and Model-Based Learning approaches. On the left, instance-based models like k-NN store all training data and make predictions by comparing new inputs to past examples — a lazy approach that requires no training phase. On the right, model-based learning involves building a predictive function during training, enabling fast and generalized inference. This contrast is crucial when considering latency, memory, and scalability — especially in real-time ML applications like high-frequency trading systems.</p>
